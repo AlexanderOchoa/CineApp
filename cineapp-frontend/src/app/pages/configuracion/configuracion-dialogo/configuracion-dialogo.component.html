@@ -1,0 +1,11 @@
+<div>
+  <mat-form-field>
+    <input matInput placeholder="Parámetro" [(ngModel)]="config.parametro">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Valor" [(ngModel)]="config.valor">
+  </mat-form-field>
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>

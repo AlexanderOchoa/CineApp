@@ -1,0 +1,16 @@
+<div>
+  <div style="font-weight: bold">Usuario:</div>
+  <div>{{usuario.username}}</div>
+  <img style="margin: 8px 0px" mat-card-image [src]="imagenData" *ngIf="imagenEstado" width="50%" height="50%"/>
+  <div style="font-weight: bold">Roles: </div>
+  <div *ngFor="let rol of usuario.roles">{{rol.nombre}}</div>
+</div>
+<div *ngIf="esEditar">
+  <button mat-button color="primary" onclick="document.getElementById('fileToUpload').click()">Seleccionar archivo</button>
+  <input id="fileToUpload" type="file" (change)="selectFile($event)" style="display:none;" accept="image/*">
+  <p>{{labelFile}}</p>
+</div>
+<br>
+<button mat-raised-button color="primary" (click)="ngEditar()" *ngIf="!esEditar">Editar</button>
+<button mat-raised-button color="primary" (click)="ngGuardarCambios()" *ngIf="esEditar">Guardar cambios</button>
+<button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
